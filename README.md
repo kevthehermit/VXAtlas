@@ -35,32 +35,32 @@ about the image formats.
 
 ## Quick start
 
-You need three things on either platform:
+Both parts are on PyPI: [vxatlas](https://pypi.org/project/vxatlas/) and
+[vxatlas-ghidra](https://pypi.org/project/vxatlas-ghidra/).
 
-- **Python 3.9 to 3.13**, 64-bit. Ghidra 12.2 bundles its Python bridge for
-  these versions only.
+If you only want the `vxatlas` command and not the Ghidra import, Python 3.9
+or later is all you need:
+
+```
+pip install vxatlas
+vxatlas firmware.bin
+```
+
+For the Ghidra import you need three things on either platform:
+
+- **Python 3.9 or later**, 64-bit.
 - **JDK 25**, 64-bit, for example Eclipse Temurin.
 - **Ghidra 12.2**, unzipped from the
   [official release](https://github.com/NationalSecurityAgency/ghidra/releases).
 
-If you only want the `vxatlas` command and not the Ghidra import, Python alone
-is enough: run `pip install ./core` and skip the rest.
-
-PyGhidra is installed from the copy shipped inside Ghidra, so the two always
-match. The last install step downloads `setuptools` from PyPI.
-
 ### Linux quick start
 
 ```
-git clone https://github.com/kevthehermit/VXAtlas.git
-cd VXAtlas
-
 export GHIDRA_INSTALL_DIR=/opt/ghidra_12.2_PUBLIC
-python3 -m venv .venv
-. .venv/bin/activate
+python3 -m venv ~/vxatlas-venv
+. ~/vxatlas-venv/bin/activate
 
-pip install --no-index --find-links "$GHIDRA_INSTALL_DIR/Ghidra/Features/PyGhidra/pypkg/dist" pyghidra
-pip install ./core ./ghidra_adapter
+pip install vxatlas-ghidra
 ```
 
 Get a sample image and import it:
@@ -82,15 +82,11 @@ On Debian and Ubuntu, `python3 -m venv` needs the `python3-venv` package.
 In PowerShell:
 
 ```powershell
-git clone https://github.com/kevthehermit/VXAtlas.git
-cd VXAtlas
-
 $env:GHIDRA_INSTALL_DIR = "C:\ghidra_12.2_PUBLIC"
-py -3.12 -m venv .venv
-.venv\Scripts\Activate.ps1
+py -m venv C:\vxatlas-venv
+C:\vxatlas-venv\Scripts\Activate.ps1
 
-pip install --no-index --find-links "$env:GHIDRA_INSTALL_DIR\Ghidra\Features\PyGhidra\pypkg\dist" pyghidra
-pip install .\core .\ghidra_adapter
+pip install vxatlas-ghidra
 ```
 
 Get a sample image and import it:
@@ -114,6 +110,20 @@ Notes for Windows:
   `Set-ExecutionPolicy -Scope Process RemoteSigned` first.
 - If PyGhidra cannot find Java, check that `java -version` reports 25 in the
   same window.
+
+### If PyGhidra does not match your Ghidra
+
+`pip install vxatlas-ghidra` takes PyGhidra from PyPI. If Ghidra fails to
+start from the command, install the copy of PyGhidra shipped inside your
+Ghidra instead, which always matches it. That copy supports Python 3.9 to
+3.13.
+
+```
+pip install --force-reinstall --no-index --find-links "$GHIDRA_INSTALL_DIR/Ghidra/Features/PyGhidra/pypkg/dist" pyghidra
+```
+
+In PowerShell, write the path as
+`"$env:GHIDRA_INSTALL_DIR\Ghidra\Features\PyGhidra\pypkg\dist"`.
 
 ### After importing
 
@@ -163,8 +173,17 @@ against a kernel image.
 
 ## Development
 
+To work on VxAtlas, clone the repository and install both packages from it in
+place of the PyPI ones:
+
+```
+git clone https://github.com/kevthehermit/VXAtlas.git
+cd VXAtlas
+pip install -e ./core -e ./ghidra_adapter
+```
+
 Build and test run in Docker against a pinned Ghidra release, so no local
-Ghidra is needed.
+Ghidra is needed for that.
 
 ```
 docker compose build ghidra
