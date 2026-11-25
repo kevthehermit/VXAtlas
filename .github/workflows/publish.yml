@@ -1,14 +1,20 @@
 # Build both packages and publish them to PyPI when a GitHub release is published.
 #
 # Publishing uses PyPI Trusted Publishing, so no API token is stored. Each PyPI
-# project (vxatlas and vxatlas-ghidra) must list this workflow and the "pypi"
-# environment as a trusted publisher.
+# project lists this workflow and its own environment as a trusted publisher:
+# "pypi" for vxatlas and "pypi-ghidra" for vxatlas-ghidra. The environments
+# differ so that PyPI can tell which project a run is publishing.
 name: Publish to PyPI
 
 on:
   release:
     types: [published]
-  workflow_dispatch:  # manual run builds and tests only; it does not publish
+  workflow_dispatch:  # manual run; builds and tests only unless "publish" is ticked
+    inputs:
+      publish:
+        description: Upload to PyPI (files already on PyPI are skipped)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -49,7 +55,7 @@ jobs:
           path: dist/
 
   publish-core:
-    if: github.event_name == 'release'
+    if: github.event_name == 'release' || inputs.publish
     needs: build
     runs-on: ubuntu-latest
     environment: pypi
@@ -63,12 +69,13 @@ jobs:
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: dist/core/
+          skip-existing: true
 
   publish-ghidra:
-    if: github.event_name == 'release'
+    if: github.event_name == 'release' || inputs.publish
     needs: publish-core  # the adapter pins the core version, so the core goes first
     runs-on: ubuntu-latest
-    environment: pypi
+    environment: pypi-ghidra
     permissions:
       id-token: write
     steps:
@@ -79,3 +86,4 @@ jobs:
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: dist/ghidra/
+          skip-existing: true
