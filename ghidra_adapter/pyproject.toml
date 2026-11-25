@@ -1,18 +1,36 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "vxatlas-ghidra"
-version = "0.1.0.dev0"
-description = "Ghidra (PyGhidra) adapter for VxAtlas: import VxWorks images with base, memory map and symbols"
+version = "0.1.0"
+description = "Import VxWorks firmware images into Ghidra with the base address, memory map and symbols recovered by VxAtlas"
 readme = "README.md"
 license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "The VxAtlas Authors" }]
 requires-python = ">=3.9"
-dependencies = ["vxatlas==0.1.0.dev0", "pyghidra>=3.0"]
+dependencies = ["vxatlas==0.1.0", "pyghidra>=3.0"]
+keywords = ["vxworks", "firmware", "reverse-engineering", "ghidra", "pyghidra"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+    "Topic :: Software Development :: Disassemblers",
+    "Topic :: Software Development :: Embedded Systems",
+]
 
 [project.scripts]
 vxatlas-ghidra = "vxatlas_ghidra.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/kevthehermit/VXAtlas"
+Documentation = "https://github.com/kevthehermit/VXAtlas/blob/main/docs/USAGE.md"
+Issues = "https://github.com/kevthehermit/VXAtlas/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -1,18 +1,36 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "vxatlas"
-version = "0.1.0.dev0"
-description = "Analysis toolkit for VxWorks 5.x, 6.x and 7.x firmware images (pure-Python core)"
+version = "0.1.0"
+description = "Identify VxWorks 5.x, 6.x and 7.x firmware images and recover their load address and symbols"
 readme = "README.md"
 license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "The VxAtlas Authors" }]
 requires-python = ">=3.9"
 dependencies = []
+keywords = ["vxworks", "firmware", "reverse-engineering", "symbols", "embedded"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+    "Topic :: Software Development :: Disassemblers",
+    "Topic :: Software Development :: Embedded Systems",
+]
 
 [project.scripts]
 vxatlas = "vxatlas.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/kevthehermit/VXAtlas"
+Documentation = "https://github.com/kevthehermit/VXAtlas/blob/main/docs/USAGE.md"
+Issues = "https://github.com/kevthehermit/VXAtlas/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
