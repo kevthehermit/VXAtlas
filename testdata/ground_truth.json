@@ -1,0 +1,360 @@
+{
+  "images": [
+    {
+      "file": "vx5_arm_le.bin",
+      "source": "vxhunter example_firmware/image_vx5_arm_little_endian.bin",
+      "sha256": "13bec25537a3e6654a59f039f21b6f5b94d45a9bef6fa2211e7a1cfbe9998fea",
+      "container": [
+        "raw"
+      ],
+      "version_family": "5.x",
+      "version": "5.5.1",
+      "arch": "arm",
+      "endian": "little",
+      "pointer_size": 4,
+      "base": "0x1000",
+      "symbol_table": {
+        "offset": "0xcc4678",
+        "count": 20337,
+        "entry_size": 16,
+        "profile": "vx5-32",
+        "stripped": false
+      },
+      "symbols": {
+        "sysInit": "0x1000",
+        "usrInit": "0x14d30",
+        "usrRoot": "0x15230",
+        "taskSpawn": "0x211b08",
+        "printf": "0xb47c84"
+      },
+      "elf_reference": null,
+      "device_trees": []
+    },
+    {
+      "file": "vx5_ppc_be.bin",
+      "source": "vxhunter example_firmware/image_vx5_ppc_big_endian.bin",
+      "sha256": "eb7543173afeeb414313b6c8b19bf7cb3ada1222152aab44d91e6d7b169ae057",
+      "container": [
+        "raw"
+      ],
+      "version_family": "5.x",
+      "version": "5.4",
+      "arch": "ppc",
+      "endian": "big",
+      "pointer_size": 4,
+      "base": "0x10000",
+      "symbol_table": {
+        "offset": "0x301e60",
+        "count": 10069,
+        "entry_size": 16,
+        "profile": "vx5-32",
+        "stripped": false
+      },
+      "symbols": {
+        "_sysInit": "0x10000",
+        "usrInit": "0x2cd94",
+        "usrRoot": "0x2d28c",
+        "taskSpawn": "0x1a8984",
+        "printf": "0x1bc1cc"
+      },
+      "elf_reference": null,
+      "device_trees": []
+    },
+    {
+      "file": "vx6_arm_le.bin",
+      "source": "vxhunter example_firmware/image_vx6_arm_little_endian.bin",
+      "sha256": "2026769672ea36e327a1ccada505b72923fabb4c19d95d35981cf553bd469007",
+      "container": [
+        "raw"
+      ],
+      "version_family": "6.x",
+      "version": "6.7",
+      "arch": "arm",
+      "endian": "little",
+      "pointer_size": 4,
+      "base": "0xf2003fe4",
+      "symbol_table": {
+        "offset": "0x33645c",
+        "count": 11519,
+        "entry_size": 20,
+        "profile": "vx6-32",
+        "stripped": false
+      },
+      "symbols": {
+        "sysInit": "0xf2004000",
+        "usrInit": "0xf20141b8",
+        "usrRoot": "0xf20153f8",
+        "taskSpawn": "0xf223ddf8",
+        "printf": "0xf216da60"
+      },
+      "elf_reference": null,
+      "device_trees": []
+    },
+    {
+      "file": "vx6_ppc_be.bin",
+      "source": "vxhunter example_firmware/image_vx6_ppc_big_endian.bin",
+      "sha256": "c2397ed8924f9569f7add9d604b5e9276e44197e0b5129fd6fec0b9075bf6cfb",
+      "container": [
+        "raw"
+      ],
+      "version_family": "6.x",
+      "version": "6.4",
+      "arch": "ppc",
+      "endian": "big",
+      "pointer_size": 4,
+      "base": "0x100000",
+      "symbol_table": {
+        "offset": "0xd35d34",
+        "count": 36649,
+        "entry_size": 20,
+        "profile": "vx6-32",
+        "stripped": false
+      },
+      "symbols": {
+        "_sysInit": "0x100000",
+        "usrInit": "0x408d8c",
+        "usrRoot": "0x409918",
+        "taskSpawn": "0xa5b798",
+        "printf": "0x970134"
+      },
+      "elf_reference": null,
+      "device_trees": []
+    },
+    {
+      "file": "vx7_2103_arm_le.bin",
+      "source": "Wind River SDK wrsdk-vxworks7-qemu-sabrelite-1.5: vxsdk/bsps/fsl_imx6_2_0_4_0/vxWorks.bin",
+      "sha256": "599120d1de31ecb9d0a705ef04103b48b404bf809ba20b723220083cfe38758a",
+      "container": [
+        "raw"
+      ],
+      "version_family": "7.x",
+      "version": "7 (21.03)",
+      "arch": "arm",
+      "endian": "little",
+      "pointer_size": 4,
+      "base": "0x100000",
+      "symbol_table": {
+        "offset": "0x847efc",
+        "count": 14356,
+        "entry_size": 20,
+        "profile": "vx6-32",
+        "stripped": false
+      },
+      "symbols": {
+        "sysInit": "0x100000",
+        "_sysInit": "0x100000",
+        "usrInit": "0x10e2c8",
+        "usrRoot": "0x105c58",
+        "taskSpawn": "0x65eb88",
+        "printf": "0x2ac124"
+      },
+      "elf_reference": "vx7_2103_arm_le.elf",
+      "device_trees": [
+        {
+          "offset": "0x8282a8",
+          "size": 16493
+        }
+      ]
+    },
+    {
+      "file": "vx7_2103_arm_le.uimage",
+      "source": "Wind River SDK wrsdk-vxworks7-qemu-sabrelite-1.5: vxsdk/bsps/fsl_imx6_2_0_4_0/uVxWorks",
+      "sha256": "5265bb25d372278bc3e0566faab68026d9866432730c6bb0ec25d346df59245d",
+      "container": [
+        "uimage",
+        "raw"
+      ],
+      "version_family": "7.x",
+      "version": "7 (21.03)",
+      "arch": "arm",
+      "endian": "little",
+      "pointer_size": 4,
+      "base": "0x100000",
+      "symbol_table": {
+        "offset": "0x847efc",
+        "count": 14356,
+        "entry_size": 20,
+        "profile": "vx6-32",
+        "stripped": false
+      },
+      "symbols": {
+        "sysInit": "0x100000",
+        "_sysInit": "0x100000",
+        "usrInit": "0x10e2c8",
+        "usrRoot": "0x105c58",
+        "taskSpawn": "0x65eb88",
+        "printf": "0x2ac124"
+      },
+      "elf_reference": "vx7_2103_arm_le.elf",
+      "device_trees": [
+        {
+          "offset": "0x8282a8",
+          "size": 16493
+        }
+      ]
+    },
+    {
+      "file": "vx7_2103_arm_le.elf",
+      "source": "Wind River SDK wrsdk-vxworks7-qemu-sabrelite-1.5: vxsdk/bsps/fsl_imx6_2_0_4_0/vxWorks",
+      "sha256": "76291d01271476e902dff8c2f42a539f0d1fcee047328d659d0a40ce30eac809",
+      "container": [
+        "elf"
+      ],
+      "version_family": "7.x",
+      "version": "7 (21.03)",
+      "arch": "arm",
+      "endian": "little",
+      "pointer_size": 4,
+      "base": "0x100000",
+      "symbol_table": {
+        "offset": "0x847ffc",
+        "count": 14356,
+        "entry_size": 20,
+        "profile": "vx6-32",
+        "stripped": false
+      },
+      "symbols": {
+        "sysInit": "0x100000",
+        "_sysInit": "0x100000",
+        "usrInit": "0x10e2c8",
+        "usrRoot": "0x105c58",
+        "taskSpawn": "0x65eb88",
+        "printf": "0x2ac124"
+      },
+      "elf_reference": null,
+      "device_trees": [
+        {
+          "offset": "0x8283a8",
+          "size": 16493
+        }
+      ]
+    },
+    {
+      "file": "vx7_2609_aarch64.bin",
+      "source": "Wind River SDK wrsdk-vxworks7-raspberrypi4b-1.10.0: vxsdk/bsps/rpi_4_0_1_3_0/vxWorks.bin",
+      "sha256": "4389b7a75aa1af10a0635f52fc362b338dab6d36a825f8176f2d39e58eebeca4",
+      "container": [
+        "raw"
+      ],
+      "version_family": "7.x",
+      "version": "7 (26.09)",
+      "arch": "aarch64",
+      "endian": "little",
+      "pointer_size": 8,
+      "base": "0xffffffff80100000",
+      "symbol_table": {
+        "offset": "0xf41540",
+        "count": 26439,
+        "entry_size": 40,
+        "profile": "vx7-64",
+        "stripped": false
+      },
+      "symbols": {
+        "sysInit": "0xffffffff80100000",
+        "usrInit": "0xffffffff8010c6b4",
+        "usrRoot": "0xffffffff80104ca0",
+        "taskSpawn": "0xffffffff808662d4",
+        "printf": "0xffffffff802d24c0"
+      },
+      "elf_reference": "vx7_2609_aarch64.elf",
+      "device_trees": []
+    },
+    {
+      "file": "vx7_2609_aarch64.uimage",
+      "source": "Wind River SDK wrsdk-vxworks7-raspberrypi4b-1.10.0: vxsdk/bsps/rpi_4_0_1_3_0/uVxWorks",
+      "sha256": "bcd35af0bbc7887b10bee4742d52dc6fdf43f1b6d8c67093fad4d3bf0851a8a6",
+      "container": [
+        "uimage",
+        "raw"
+      ],
+      "version_family": "7.x",
+      "version": "7 (26.09)",
+      "arch": "aarch64",
+      "endian": "little",
+      "pointer_size": 8,
+      "base": "0xffffffff80100000",
+      "symbol_table": {
+        "offset": "0xf41540",
+        "count": 26439,
+        "entry_size": 40,
+        "profile": "vx7-64",
+        "stripped": false
+      },
+      "symbols": {
+        "sysInit": "0xffffffff80100000",
+        "usrInit": "0xffffffff8010c6b4",
+        "usrRoot": "0xffffffff80104ca0",
+        "taskSpawn": "0xffffffff808662d4",
+        "printf": "0xffffffff802d24c0"
+      },
+      "elf_reference": "vx7_2609_aarch64.elf",
+      "device_trees": []
+    },
+    {
+      "file": "vx7_2609_aarch64.elf",
+      "source": "Wind River SDK wrsdk-vxworks7-raspberrypi4b-1.10.0: vxsdk/bsps/rpi_4_0_1_3_0/vxWorks",
+      "sha256": "adc0fcce7c759497bc94577a22ce43f569ad9b3aabb4baf84cea8758ce23778a",
+      "container": [
+        "elf"
+      ],
+      "version_family": "7.x",
+      "version": "7 (26.09)",
+      "arch": "aarch64",
+      "endian": "little",
+      "pointer_size": 8,
+      "base": "0xffffffff80100000",
+      "symbol_table": {
+        "offset": "0xf42540",
+        "count": 26439,
+        "entry_size": 40,
+        "profile": "vx7-64",
+        "stripped": false
+      },
+      "symbols": {
+        "sysInit": "0xffffffff80100000",
+        "usrInit": "0xffffffff8010c6b4",
+        "usrRoot": "0xffffffff80104ca0",
+        "taskSpawn": "0xffffffff808662d4",
+        "printf": "0xffffffff802d24c0"
+      },
+      "elf_reference": null,
+      "device_trees": []
+    },
+    {
+      "file": "vx7_2609_x86_64.elf",
+      "source": "Wind River SDK wrsdk-vxworks7-qemu-1.18.0: vxsdk/bsps/itl_generic_3_1_0_0/vxWorks",
+      "sha256": "dd2ff0a0cc21ac0b394d7ecabe9094c7ca05dee8a9b9638a62c4a434e48ba87c",
+      "container": [
+        "elf"
+      ],
+      "version_family": "7.x",
+      "version": "7 (26.09)",
+      "arch": "x86_64",
+      "endian": "little",
+      "pointer_size": 8,
+      "base": "0x408000",
+      "symbol_table": {
+        "offset": "0x2eb878d0",
+        "count": 28206,
+        "entry_size": 40,
+        "profile": "vx7-64",
+        "stripped": false
+      },
+      "symbols": {
+        "sysInit": "0x408000",
+        "_sysInit": "0x408000",
+        "usrInit": "0xffffffff8041cfe0",
+        "usrRoot": "0xffffffff804153a0",
+        "taskSpawn": "0xffffffff80b06430",
+        "printf": "0xffffffff805c1ce0"
+      },
+      "elf_reference": null,
+      "device_trees": [
+        {
+          "offset": "0x2eb4a280",
+          "size": 2149
+        }
+      ]
+    }
+  ]
+}

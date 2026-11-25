@@ -1,0 +1,12 @@
+build/
+dist/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.venv/
+.vscode/
+.idea/
+
+# Internal working documents, kept local
+/TASKING.md
+/notes/

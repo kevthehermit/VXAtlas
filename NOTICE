@@ -1,0 +1,12 @@
+VxAtlas
+Copyright 2026 The VxAtlas Authors
+
+This product is licensed under the Apache License, Version 2.0.
+
+VxAtlas is a clean-room implementation. It contains no code from other
+VxWorks analysis tools. Two of them are used as external test oracles only,
+run unmodified from their own distributions by the scripts in tools/parity/:
+
+  - vxhunter (https://github.com/PAGalaxyLab/vxhunter), BSD 2-Clause License
+  - VxWorksSymTab_Finder.java, distributed with Ghidra
+    (https://github.com/NationalSecurityAgency/ghidra), Apache License 2.0

@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vxatlas-ghidra"
+version = "0.1.0.dev0"
+description = "Ghidra (PyGhidra) adapter for VxAtlas: import VxWorks images with base, memory map and symbols"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.9"
+dependencies = ["vxatlas==0.1.0.dev0", "pyghidra>=3.0"]
+
+[project.scripts]
+vxatlas-ghidra = "vxatlas_ghidra.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+vxatlas_ghidra = ["ghidra_scripts/*.py"]

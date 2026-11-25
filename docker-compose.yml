@@ -1,0 +1,48 @@
+# Build and test VxAtlas against a pinned Ghidra, with no local Ghidra install.
+#
+#   docker compose build ghidra
+#   docker compose run --rm core-test   # pure-Python unit tests (no Ghidra involved)
+#   docker compose run --rm build       # builds the wheels into dist/
+#   docker compose run --rm test        # installs the wheels, runs headless Ghidra tests
+#
+# Firmware samples are mounted read-only from VXATLAS_SAMPLES (a directory outside the
+# repo, holding a corpus/ folder). Tests that need them skip when it is not set.
+
+x-common: &common
+  image: vxatlas-ghidra:${GHIDRA_VERSION}
+  user: "${VXATLAS_UID:-1000}:${VXATLAS_GID:-1000}"
+  working_dir: /work
+  volumes:
+    - .:/work
+    - ${VXATLAS_SAMPLES:-./testdata/empty}:/samples:ro
+    - cache:/cache
+  environment:
+    VXATLAS_SAMPLES: /samples
+
+services:
+  ghidra:
+    <<: *common
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        JDK_IMAGE: ${JDK_IMAGE}
+        GHIDRA_VERSION: ${GHIDRA_VERSION}
+        GHIDRA_BUILD_DATE: ${GHIDRA_BUILD_DATE}
+        GHIDRA_SHA256: ${GHIDRA_SHA256}
+    command: ["bash"]
+
+  core-test:
+    <<: *common
+    command: ["bash", "docker/run-core-tests.sh"]
+
+  build:
+    <<: *common
+    command: ["bash", "docker/build.sh"]
+
+  test:
+    <<: *common
+    command: ["bash", "docker/run-headless-tests.sh"]
+
+volumes:
+  cache:
